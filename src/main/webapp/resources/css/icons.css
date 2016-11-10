@@ -1,0 +1,153 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 Nov, 2016, 5:18:45 AM
+    Author     : ayojava
+*/
+
+.folder-icon{
+    background: url("#{resource['images/folder.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.mbeans-icon{
+    background: url("#{resource['images/mbeans.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.webservices-icon{
+    background: url("#{resource['images/webservices.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.primefaces-icon{
+    background: url("#{resource['images/primefaces.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.richfaces-icon{
+    background: url("#{resource['images/richfaces.png']}") no-repeat !important;
+    height:19px;
+    width:16px;
+}
+
+.liferay-icon{
+    background: url("#{resource['images/liferay.jpg']}") no-repeat !important;
+    height:19px;
+    width:16px;
+}
+
+.xml-icon{
+    background: url("#{resource['images/xml.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.resource-icon{
+    background: url("#{resource['images/resource.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.database-icon{
+    background: url("#{resource['images/database.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.square-arrow-icon{
+    background: url("#{resource['images/square-arrow.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.settings-icon{
+    background: url("#{resource['images/settings.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.email-icon{
+    background: url("#{resource['images/email.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.connector-icon{
+    background: url("#{resource['images/connector.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.jndi-icon{
+    background: url("#{resource['images/jndi.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.cluster-icon{
+    background: url("#{resource['images/cluster.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.standalone-icon{
+    background: url("#{resource['images/standalone.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.agents-icon{
+    background: url("#{resource['images/agents.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.balance-icon{
+    background: url("#{resource['images/balance.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.refresh-icon{
+    background: url("#{resource['images/refresh.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.gear-icon{
+    background: url("#{resource['images/gear.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.question-icon{
+    background: url("#{resource['images/question.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.cc1-icon{
+    background: url("#{resource['images/cc-1.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.cc2-icon{
+    background: url("#{resource['images/cc-2.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.cc3-icon{
+    background: url("#{resource['images/cc-3.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}

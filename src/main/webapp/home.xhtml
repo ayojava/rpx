@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:o="http://omnifaces.org/ui"  xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html" 
+                xmlns:of="http://omnifaces.org/functions" 
+                template="/WEB-INF/template/home-template.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:define name="pageTitle">
+        Home Page
+    </ui:define>
+    
+    <ui:define name="topNavBar">
+        <ui:include src="/WEB-INF/common/header.xhtml" />
+    </ui:define>
+    <ui:define name="sideBar">
+        <ui:include src="/WEB-INF/common/sidebar.xhtml" />
+    </ui:define>
+    <ui:define name="contentBar">
+        <ui:include src="/WEB-INF/common/content.xhtml" />
+    </ui:define>
+
+</ui:composition>

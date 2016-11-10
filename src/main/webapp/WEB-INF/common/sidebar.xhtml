@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"  xmlns:p="http://primefaces.org/ui" 
+      xmlns:of="http://omnifaces.org/functions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+        
+            <p:tree value="#{menuTreeBean.root}" var="treeObj" animate="true" dynamic="true" cache="true" 
+                    style="width: 220px;" selectionMode="single" selection="#{menuTreeBean.selectedNode}">
+                
+                <p:ajax event="select" listener="#{menuTreeBean.onNodeSelect(event)}" update=":contentForm:msgHome"/>
+                <p:treeNode expandedIcon="ui-icon-folder-open" collapsedIcon="ui-icon-folder-collapsed">
+                    <h:outputText value="#{treeObj}"/>
+                </p:treeNode>
+
+                <p:treeNode type="folder" icon="folder-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="primefaces" icon="primefaces-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="richfaces" icon="richfaces-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="liferay" icon="liferay-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="webservices" icon="webservices-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="mbeans" icon="mbeans-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="standalone" icon="standalone-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="agents" icon="agents-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="balance" icon="balance-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="resources" icon="resource-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="xml" icon="xml-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="database" icon="database-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="square-arrow" icon="square-arrow-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="settings" icon="settings-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+                <p:treeNode type="email" icon="email-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="connector" icon="connector-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="jndi" icon="jndi-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+                <p:treeNode type="cluster" icon="cluster-icon">
+                    <h:outputText value="#{treeObj}" />
+                </p:treeNode>
+
+            </p:tree> 
+        
+    </h:body>
+</html>

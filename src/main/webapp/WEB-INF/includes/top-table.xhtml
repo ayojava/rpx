@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"  xmlns:p="http://primefaces.org/ui" 
+      xmlns:of="http://omnifaces.org/functions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+        <div id="edit" class="row">
+            <div class="col-md-12">
+                <p:dataTable id="countriesTable" var="aCountry" value="#{homePageBean.allCountries}" 
+                             paginatorPosition="bottom" paginator="true" rows="10" rowIndexVar="rowIndex" rowKey="#{aCountry.population}"
+                             selection="#{homePageBean.selectedCountry}" selectionMode="single"
+                             paginatorTemplate=" {CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                    
+                    <p:ajax event="rowSelect" listener="#{homePageBean.onRowSelect}" update=":contentForm:apxTabOutputPanel"/>
+                     <p:ajax event="rowUnselect" listener="#{homePageBean.onRowUnSelect}"/>
+                   
+                    
+                     <p:column headerText="#{apx['table.Name']}" style="text-align: left;" sortBy="#{aCountry.name}">
+                        <h:outputText value="#{aCountry.name}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.instanceID']}" style="text-align: left;" sortBy="#{aCountry.region}">
+                        <h:outputText value="#{aCountry.region}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.instanceType']}" style="text-align: left;" sortBy="#{aCountry.subregion}">
+                        <h:outputText value="#{aCountry.subregion}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.availabilityZone']}" style="text-align: left;" sortBy="#{aCountry.demonym}">
+                        <h:outputText value="#{aCountry.demonym}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.instanceState']}" style="text-align: left;" sortBy="#{aCountry.capital}">
+                        <h:outputText value="#{aCountry.capital}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.statusChecks']}" style="text-align: center;" sortBy="#{aCountry.alpha2Code}">
+                        <h:outputText value="#{aCountry.alpha2Code}"/>
+                    </p:column>
+
+                    <p:column headerText="#{apx['table.alarmStatus']}" style="text-align: center;" sortBy="#{aCountry.alpha3Code}">
+                        <h:outputText value="#{aCountry.alpha3Code}"/>
+                    </p:column>
+                    
+                    <p:column headerText="#{apx['table.publicDNS']}" style="text-align: left;" sortBy="#{aCountry.population}">
+                        <h:outputText value="#{aCountry.population}"/>
+                    </p:column>
+                    
+                </p:dataTable>  
+            </div>
+        </div>
+        <div id="edit" class="row">
+            <div class="col-md-12">
+                <hr size="0" class="separator" />
+            </div>
+        </div>
+
+    </h:body>
+</html>

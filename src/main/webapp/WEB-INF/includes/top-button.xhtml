@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"  xmlns:p="http://primefaces.org/ui" 
+      xmlns:of="http://omnifaces.org/functions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+        <div id="edit" class="row">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <p:commandButton value="#{apx['btn.launchInstance']}"/>
+                    <p:spacer width="2px"/>
+                    <p:commandButton value="#{apx['btn.connect']}" class="round-button"/>
+                    <p:spacer width="2px"/>
+                    <p:splitButton value="#{apx['btn.actions']}" class="round-button">
+                        <p:menuitem value="#{apx['btn.save']}"/>
+                        <p:menuitem value="#{apx['btn.close']}"/>
+                    </p:splitButton>
+                </div>
+
+                <div class="pull-right">
+                    <p:button icon="refresh-icon" class="img-button" />
+                    <p:spacer width="8px"/>
+                    <p:button icon="gear-icon" class="img-button"/>
+                    <p:spacer width="8px"/>
+                    <p:button icon="question-icon" class="img-button"/>
+                    <p:spacer width="8px"/>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="edit" class="row">
+            <div class="col-md-12">
+                <hr size="0" class="separator" />
+            </div>
+        </div>
+
+
+    </h:body>
+</html>

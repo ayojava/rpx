@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"  xmlns:p="http://primefaces.org/ui" 
+      xmlns:of="http://omnifaces.org/functions" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+        <p:outputPanel id="apxTabOutputPanel">
+            <c:choose>
+                <c:when test="#{not homePageBean.displayTab}">
+                    <div id="edit" class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-dismissible alert-warning">
+                                #{apx['label.clickToDisplay']}
+                            </div>
+                        </div>
+                    </div>
+                </c:when>
+                <c:when test="#{homePageBean.displayTab}">
+                    <div id="edit" class="row">
+                        <div class="col-md-2">
+                            <p:outputLabel value="#{apx['label.instance']}" class="text-warning " style="font-size: 17px;"/>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="text-primary" style="font-size: 17px;">
+                                #{homePageBean.selectedCountry.name} 
+                            </span>
+                        </div>
+                        <div class="col-md-2">
+                            <p:outputLabel value="#{apx['label.elasticIP']}" class="text-warning " style="font-size: 17px;"/>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="text-primary" style="font-size: 17px;">
+                                #{homePageBean.selectedCountry.subregion} 
+                            </span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="pull-right">
+                                <p:button icon="cc1-icon" class="img-button" />
+                                <p:spacer width="8px"/>
+                                <p:button icon="cc2-icon" class="img-button" />
+                                <p:spacer width="8px"/>
+                                <p:button icon="cc3-icon" class="img-button" />
+                                <p:spacer width="8px"/>
+                            </div>
+                        </div>
+                    </div> 
+                    <div id="edit" class="row">
+                        <div class="col-md-12">
+                            <p:tabView id='apxTabView'>
+                                <p:tab id="description" title="#{apx['tab.description']}">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.instanceID']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.name} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.publicDNS']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.instanceState']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.alpha2Code} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.instanceState']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.alpha3Code} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.privateIPs']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.subregion}
+                                            </span>  
+                                        </div>
+                                                                                
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.elasticIPs']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.privateDNS']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.availabilityZone']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                                #{homePageBean.selectedCountry.demonym} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.secondaryPrivateIPs']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.scheduledEvents']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               No Scheduled Events
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.vpcID']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.region} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.amiID']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.subnetID']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.platform']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.alpha2Code} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.networkInterfaces']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.platform']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.sourceDestCheck']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                       
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.keyPairName']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.ebsOptimized']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.launchTime']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{of:formatDate(now, 'yyyy-MM-dd HH:mm:ss z')}
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.rootDeviceType']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.terminationProtection']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.rootDevice']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.lifecycle']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.blockDevices']}" class="text-warning  pull-right"/> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.area} 
+                                            </span>  
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <p:outputLabel value="#{apx['label.monitoring']}" class="text-warning  pull-right"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="text-primary">
+                                               #{homePageBean.selectedCountry.capital} 
+                                            </span> 
+                                        </div>
+                                    </div>
+                                </p:tab>
+                                <p:tab id="statusChecks" title="#{apx['tab.statusChecks']}">
+
+                                </p:tab>
+                                <p:tab id="monitoring" title="#{apx['tab.monitoring']}">
+
+                                </p:tab>
+                                <p:tab id="tags" title="#{apx['tab.tags']}">
+
+                                </p:tab>
+                            </p:tabView>
+                        </div> 
+                    </div>
+                </c:when>
+            </c:choose>
+
+        </p:outputPanel>
+    </h:body>
+</html>
