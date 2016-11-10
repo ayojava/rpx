@@ -6,9 +6,8 @@
 package org.javasoft.rpx.bean;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -18,6 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.javasoft.rpx.model.Country;
+import org.javasoft.rpx.model.TransferDTO;
 import org.primefaces.event.SelectEvent;
 
 /**
@@ -34,17 +34,21 @@ public class HomePageBean implements Serializable {
 
     @Getter
     private List<Country> allCountries;
-
+    
     @Getter
-    @Setter
+    private List<TransferDTO> transferDTO;
+    
+    @Getter @Setter
+    private TransferDTO selectedTransferDTO;
+
+    @Getter @Setter
     private Country selectedCountry;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     private boolean displayTab;
 
     @Getter
-    private String borders, altSpellings;
+    private String borders, altSpellings , fistName , lastName;
 
     @PostConstruct
     public void init() {
@@ -52,7 +56,7 @@ public class HomePageBean implements Serializable {
         displayTab = false;
     }
 
-    private void loadTable() {
+    private void loadTable_() {
         startUpBean.loadCountries();
         if (startUpBean.getAllCountries().isEmpty()) {
             allCountries = startUpBean.getAllCountries();
@@ -60,12 +64,16 @@ public class HomePageBean implements Serializable {
             allCountries = startUpBean.getAllCountries().stream().limit(80).collect(toList());
         }
     }
+    
+    private void loadTable() {
+        transferDTO = new ArrayList<>();
+    }
 
     public void onRowSelect(SelectEvent event) {
         
-        System.out.println("=== Country ==== " + ((Country) event.getObject()).getName());
-        selectedCountry = (Country) event.getObject();
-        displayTab = true;
+//        System.out.println("=== Country ==== " + ((Country) event.getObject()).getName());
+//        selectedCountry = (Country) event.getObject();
+//        displayTab = true;
        // borders = Arrays.stream(selectedCountry.getBorders()).collect(joining(", "));
         //altSpellings = Arrays.stream(selectedCountry.getAltSpellings()).collect(joining(", "));
 
@@ -73,5 +81,9 @@ public class HomePageBean implements Serializable {
 
     public void onRowUnSelect(SelectEvent event) {
         log.info("=== Country ==== {} ", ((Country) event.getObject()).getName());
+    }
+    
+    public void viewSelection(TransferDTO domain){
+        selectedTransferDTO = domain;
     }
 }

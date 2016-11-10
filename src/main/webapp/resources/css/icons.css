@@ -151,3 +151,15 @@ and open the template in the editor.
     height:16px;
     width:16px;
 }
+
+.view-icon{
+    background: url("#{resource['images/view.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}
+
+.jscale-icon{
+    background: url("#{resource['images/jscale.png']}") no-repeat !important;
+    height:16px;
+    width:16px;
+}

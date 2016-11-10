@@ -18,8 +18,31 @@ and open the template in the editor.
                     <p:commandButton value="#{rpx['btn.connect']}" class="round-button"/>
                     <p:spacer width="2px"/>
                     <p:splitButton value="#{rpx['btn.actions']}" class="round-button">
-                        <p:menuitem value="#{rpx['btn.save']}"/>
-                        <p:menuitem value="#{rpx['btn.close']}"/>
+                        <p:menuitem value="#{rpx['btn.connect']}"/>
+                        <p:menuitem value="#{rpx['btn.getWindowsPassword']}" disabled="true"/>
+                        <p:menuitem value="#{rpx['btn.launchMoreLikeThis']}"/>
+                        <p:separator />
+                        <p:submenu label="#{rpx['btn.instanceState']}">
+                            <p:menuitem value="#{rpx['btn.new']}"/>
+                            <p:menuitem value="#{rpx['btn.open']}"/>
+                        </p:submenu>
+                        <p:submenu label="#{rpx['btn.instanceSettings']}">
+                            <p:menuitem value="#{rpx['btn.new']}"/>
+                            <p:menuitem value="#{rpx['btn.open']}"/>
+                        </p:submenu>
+                        <p:submenu label="#{rpx['btn.image']}">
+                            <p:menuitem value="#{rpx['btn.new']}"/>
+                            <p:menuitem value="#{rpx['btn.open']}"/>
+                        </p:submenu>
+                        <p:submenu label="#{rpx['btn.networking']}">
+                            <p:menuitem value="#{rpx['btn.new']}"/>
+                            <p:menuitem value="#{rpx['btn.open']}"/>
+                        </p:submenu>
+                        <p:submenu label="#{rpx['btn.cloudWatchMonitoring']}">
+                            <p:menuitem value="#{rpx['btn.new']}"/>
+                            <p:menuitem value="#{rpx['btn.open']}"/>
+                        </p:submenu>
+                        
                     </p:splitButton>
                 </div>
 

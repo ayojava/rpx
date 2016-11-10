@@ -18,6 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TransferDTO {
     
+    private Long id;
+    
     private String name;
     
     private String instanceID ;
