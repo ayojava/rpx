@@ -13,17 +13,19 @@ and open the template in the editor.
         <div id="edit" class="row">
             <div class="col-md-12">
                 <div class="pull-left">
-                    <p:commandButton value="#{apx['btn.launchInstance']}"/>
+                    <p:commandButton value="#{rpx['btn.launchInstance']}"/>
                     <p:spacer width="2px"/>
-                    <p:commandButton value="#{apx['btn.connect']}" class="round-button"/>
+                    <p:commandButton value="#{rpx['btn.connect']}" class="round-button"/>
                     <p:spacer width="2px"/>
-                    <p:splitButton value="#{apx['btn.actions']}" class="round-button">
-                        <p:menuitem value="#{apx['btn.save']}"/>
-                        <p:menuitem value="#{apx['btn.close']}"/>
+                    <p:splitButton value="#{rpx['btn.actions']}" class="round-button">
+                        <p:menuitem value="#{rpx['btn.save']}"/>
+                        <p:menuitem value="#{rpx['btn.close']}"/>
                     </p:splitButton>
                 </div>
 
                 <div class="pull-right">
+                    
+                    <p:spacer width="14px"/>
                     <p:button icon="refresh-icon" class="img-button" />
                     <p:spacer width="8px"/>
                     <p:button icon="gear-icon" class="img-button"/>

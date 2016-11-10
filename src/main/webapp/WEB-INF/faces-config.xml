@@ -13,7 +13,7 @@
         </locale-config>
         <resource-bundle>
             <base-name>org.javasoft.rpx.resource.rpxMsg</base-name>
-            <var>apx</var>
+            <var>rpx</var>
         </resource-bundle>
     </application>
 

@@ -20,35 +20,35 @@ and open the template in the editor.
                      <p:ajax event="rowUnselect" listener="#{homePageBean.onRowUnSelect}"/>
                    
                     
-                     <p:column headerText="#{apx['table.Name']}" style="text-align: left;" sortBy="#{aCountry.name}">
+                     <p:column headerText="#{rpx['table.Name']}" style="text-align: left;" sortBy="#{aCountry.name}">
                         <h:outputText value="#{aCountry.name}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.instanceID']}" style="text-align: left;" sortBy="#{aCountry.region}">
+                    <p:column headerText="#{rpx['table.instanceID']}" style="text-align: left;" sortBy="#{aCountry.region}">
                         <h:outputText value="#{aCountry.region}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.instanceType']}" style="text-align: left;" sortBy="#{aCountry.subregion}">
+                    <p:column headerText="#{rpx['table.instanceType']}" style="text-align: left;" sortBy="#{aCountry.subregion}">
                         <h:outputText value="#{aCountry.subregion}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.availabilityZone']}" style="text-align: left;" sortBy="#{aCountry.demonym}">
+                    <p:column headerText="#{rpx['table.availabilityZone']}" style="text-align: left;" sortBy="#{aCountry.demonym}">
                         <h:outputText value="#{aCountry.demonym}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.instanceState']}" style="text-align: left;" sortBy="#{aCountry.capital}">
+                    <p:column headerText="#{rpx['table.instanceState']}" style="text-align: left;" sortBy="#{aCountry.capital}">
                         <h:outputText value="#{aCountry.capital}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.statusChecks']}" style="text-align: center;" sortBy="#{aCountry.alpha2Code}">
+                    <p:column headerText="#{rpx['table.statusChecks']}" style="text-align: center;" sortBy="#{aCountry.alpha2Code}">
                         <h:outputText value="#{aCountry.alpha2Code}"/>
                     </p:column>
 
-                    <p:column headerText="#{apx['table.alarmStatus']}" style="text-align: center;" sortBy="#{aCountry.alpha3Code}">
+                    <p:column headerText="#{rpx['table.alarmStatus']}" style="text-align: center;" sortBy="#{aCountry.alpha3Code}">
                         <h:outputText value="#{aCountry.alpha3Code}"/>
                     </p:column>
                     
-                    <p:column headerText="#{apx['table.publicDNS']}" style="text-align: left;" sortBy="#{aCountry.population}">
+                    <p:column headerText="#{rpx['table.publicDNS']}" style="text-align: left;" sortBy="#{aCountry.population}">
                         <h:outputText value="#{aCountry.population}"/>
                     </p:column>
                     
