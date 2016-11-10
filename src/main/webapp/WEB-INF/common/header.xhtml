@@ -9,32 +9,61 @@ and open the template in the editor.
       xmlns:of="http://omnifaces.org/functions" xmlns:o="http://omnifaces.org/ui" 
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
-        <p:menubar id="topMenuBar" style=" padding: 4px;background-image: linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);">
-            
-            <p:submenu label="#{rpx['menubar.services']}">
-                <p:menuitem value="#{rpx['menubar.new']}" url="#" />
-                <p:menuitem value="#{rpx['menubar.open']}" url="#" />
-                <p:separator />
-                <p:menuitem value="#{rpx['menubar.quit']}" url="#" />
-            </p:submenu>
-
-
-            <f:facet name="options">
-                <o:outputFormat value="#{rpx['label.welcomeMessage']}">
-                    <f:param value="#{homePageBean.fistName}"/>
-                    <f:param value="#{homePageBean.lastName}"/>
-                </o:outputFormat>
-                <p:ajaxStatus style="width:25px;height:25px;margin-right: 25px;">
-                    <f:facet name="start">
-                        <p:graphicImage name="ajax-loading.gif" library="images" />
-                    </f:facet>
-                    <f:facet name="complete">
-                        <h:outputText value="" />
-                    </f:facet>
-                </p:ajaxStatus> 
-                
-            </f:facet>
-
-        </p:menubar>
+        <div class="row">
+            <div class="col-md-1">
+                <p:graphicImage name="jscale.png" library="images" />
+            </div>
+            <div class="col-md-4" style="padding-top: 15px;">
+                <i class="fa fa-home" aria-hidden="true"/>
+                #{rpx['menubar.home']}
+                <p:spacer width="2px"/>
+                |
+                <p:spacer width="2px"/>
+                <i class="fa fa-cogs" aria-hidden="true"/>
+                #{rpx['menubar.services']}
+                <p:spacer width="2px"/>
+                |
+                <i class="fa fa-globe" aria-hidden="true"/>
+                #{rpx['menubar.location']}
+            </div>
+            <div class="col-md-3" style="padding-top: 15px;">
+                <div class="pull-right">
+                    #{rpx['label.welcome']}
+                    <p:spacer width="2px"/>
+                    <i class="fa fa-user" aria-hidden="true"/>
+                    <p:spacer width="3px"/>
+                    #{homePageBean.firstName}
+                    <p:spacer width="2px"/>
+                    #{homePageBean.lastName}                    
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top: 15px;">
+                <div class="pull-right">
+                    <em>
+                        <script type="text/javascript" >
+                            var d = new Date();
+                            var weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+                            var monthname = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                            document.write(weekday[d.getDay()] + ", ");
+                            document.write(monthname[d.getMonth()] + " ");
+                            document.write(d.getDate() + " ");
+                            document.write(d.getFullYear() + ".");
+                        </script>
+                    </em>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="pull-right">
+                    <p:ajaxStatus style="width:25px;height:25px;margin-right: 25px;">
+                        <f:facet name="start">
+                            <p:graphicImage name="ajax-loading.gif" library="images" />
+                        </f:facet>
+                        <f:facet name="complete">
+                            <h:outputText value="" />
+                        </f:facet>
+                    </p:ajaxStatus> 
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>

@@ -17,17 +17,18 @@ and open the template in the editor.
         <ui:include src="/WEB-INF/common/resources.xhtml"/>
     </h:head>
     <h:body>
-        <div class="container-fluid">
-            <div class="row">
-                <o:form id="topForm" >
-                    <ui:insert name="topNavBar">Top</ui:insert>
-                </o:form>
-            </div>
-        </div>
-
         <table class="table table-bordered table-condensed" style="margin-top: 2px;">
             <tr class="page-background">
-                <td style="width: 12%;" height="560px">
+                <td colspan="2">
+                    <div class="container-fluid">
+                        <o:form id="topForm" >
+                            <ui:insert name="topNavBar">Top</ui:insert>
+                        </o:form>
+                    </div>
+                </td>
+            </tr>
+            <tr class="page-background">
+                <td style="width: 11%;" height="590px">
                     <div class="container-fluid">
                         <div class="row">
                             <o:form id="sideForm" >
@@ -37,7 +38,7 @@ and open the template in the editor.
                     </div>
                 </td>
                 <td>
-                    
+
                     <o:form id="contentForm">
                         <p:growl id="msgHome" globalOnly="true" sticky="false" />
                         <div class="container-fluid">
@@ -47,6 +48,6 @@ and open the template in the editor.
                 </td>
             </tr>
         </table>
-        
+
     </h:body>
 </html>

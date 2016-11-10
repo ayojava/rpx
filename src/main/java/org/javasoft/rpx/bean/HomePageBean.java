@@ -47,13 +47,15 @@ public class HomePageBean implements Serializable {
     @Getter @Setter
     private boolean displayTab;
 
-    @Getter
-    private String borders, altSpellings , fistName , lastName;
+    @Getter @Setter
+    private String borders, altSpellings , firstName , lastName;
 
     @PostConstruct
     public void init() {
         loadTable();
         displayTab = false;
+        firstName ="xxxx";
+        lastName ="yyyy";
     }
 
     private void loadTable_() {

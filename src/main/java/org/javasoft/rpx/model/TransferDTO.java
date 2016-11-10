@@ -78,5 +78,11 @@ public class TransferDTO {
     
     private String monitoring;
     
+    private String securityGroups;
+    
+    private String iamRole;
+    
+    private String owner;
+    
     
 }

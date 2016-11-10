@@ -160,6 +160,6 @@ and open the template in the editor.
 
 .jscale-icon{
     background: url("#{resource['images/jscale.png']}") no-repeat !important;
-    height:16px;
-    width:16px;
+    height:16px !important;
+    width:16px !important;
 }
