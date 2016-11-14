@@ -57,7 +57,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.publicDNS}
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -69,7 +69,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.instanceState} 
                                             </span>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -77,10 +77,8 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/>
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary">
-                                                <p:commandLink value="#{homePageBean.selectedTransferDTO.publicIP}"
-                                                               style="font-size: 13px;"/>
-                                            </span>      
+                                            <p:commandLink value="#{homePageBean.selectedTransferDTO.publicIP}"
+                                                           style="font-size: 13px;color: #3399f3;"/>      
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,10 +97,10 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/>
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary">
-                                                <p:commandLink value= "#{homePageBean.selectedTransferDTO.elasticIPs}"
-                                                               style="font-size: 13px;"/>                                     
-                                            </span>   
+
+                                            <p:commandLink value= "#{homePageBean.selectedTransferDTO.elasticIPs}"
+                                                           style="font-size: 13px;color: #3399f3;"/>                                     
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -124,10 +122,10 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.availabilityZone} 
                                             </span>
-                                            
+
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <p:outputLabel value="#{rpx['label.privateIPs']}" class="text-warning  pull-right"
@@ -137,7 +135,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.privateIPs}
                                             </span>
-                                             
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -148,7 +146,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.securityGroups} 
                                             </span>
-                                            
+
                                         </div>
                                     </div>
 
@@ -182,7 +180,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.vpcID} 
                                             </span>
-                                           
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -193,7 +191,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.amiID} 
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -205,7 +203,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.subnetID} 
                                             </span>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -213,7 +211,7 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/>
                                         </div>
                                         <div class="col-md-3">
-                                           
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -224,9 +222,9 @@ and open the template in the editor.
                                         <div class="col-md-3">
                                             <span class="text-primary">
                                                 <p:commandLink value="#{homePageBean.selectedTransferDTO.networkInterfaces}  "
-                                                               style="font-size: 13px;"/>   
+                                                               style="font-size: 13px;color: #3399f3;"/>   
                                             </span>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -248,7 +246,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.srcDestChecks} 
                                             </span>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -256,17 +254,17 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/>
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary" style="font-size: 13px;">
-                                                 #{homePageBean.selectedTransferDTO.keyPairName} 
+                                            <span  style="font-size: 13px;">
+                                                #{homePageBean.selectedTransferDTO.keyPairName} 
                                             </span> 
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3">
-                                           
+
                                         </div>
                                         <div class="col-md-3">
-                                           
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -274,8 +272,8 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/>
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary" style="font-size: 13px;">
-                                                 #{homePageBean.selectedTransferDTO.owner} 
+                                            <span  style="font-size: 13px;">
+                                                #{homePageBean.selectedTransferDTO.owner} 
                                             </span> 
                                         </div>
                                     </div>
@@ -288,7 +286,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.ebsOptimized}
                                             </span>
-                                             
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -299,7 +297,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{of:formatDate(now, 'yyyy-MM-dd HH:mm:ss z')}
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -311,7 +309,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.rootDeviceType} 
                                             </span>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -322,7 +320,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.terminationProtection}
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -331,10 +329,8 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/> 
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary">
-                                                <p:commandLink value="#{homePageBean.selectedTransferDTO.rootDevice}"
-                                                               style="font-size: 13px;"/>
-                                            </span>   
+                                            <p:commandLink value="#{homePageBean.selectedTransferDTO.rootDevice}"
+                                                           style="font-size: 13px;color: #3399f3;"/>
                                         </div>
 
                                         <div class="col-md-3">
@@ -345,7 +341,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.lifecycle} 
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -354,10 +350,10 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/> 
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="text-primary" >
+                                            
                                                 <p:commandLink value="#{homePageBean.selectedTransferDTO.blockDevices} "
-                                                               style="font-size: 13px;"/>
-                                            </span>     
+                                                               style="font-size: 13px;color: #3399f3;"/>
+                                            
                                         </div>
 
                                         <div class="col-md-3">
@@ -368,7 +364,7 @@ and open the template in the editor.
                                             <span style="font-size: 13px;">
                                                 #{homePageBean.selectedTransferDTO.monitoring} 
                                             </span>
-                                            
+
                                         </div>
                                     </div>
                                 </p:tab>
@@ -376,7 +372,7 @@ and open the template in the editor.
                                     <div class="row">
                                         <div class="col-md-12">
                                             #{rpx['label.statusCheckMessage1']}
-                                            <p:link value="#{rpx['label.statusCheckMessage2']}" class="text-primary"/>
+                                            <p:link value="#{rpx['label.statusCheckMessage2']}" style="color: #3399f3;"/>
                                             #{rpx['label.statusCheckMessage3']}
                                         </div>
                                     </div>
@@ -387,7 +383,7 @@ and open the template in the editor.
                                     </div>
                                 </p:tab>
                                 <p:tab id="monitoring" title="#{rpx['tab.monitoring']}">
-
+                                    <ui:include src="lineChartsPage.xhtml"/>
                                 </p:tab>
                                 <p:tab id="tags" title="#{rpx['tab.tags']}">
 
