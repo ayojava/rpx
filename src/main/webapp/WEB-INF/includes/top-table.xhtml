@@ -6,9 +6,10 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"  xmlns:p="http://primefaces.org/ui" 
-      xmlns:of="http://omnifaces.org/functions"
+      xmlns:of="http://omnifaces.org/functions" xmlns:o="http://omnifaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
+        <o:importConstants type="org.apache.commons.lang3.StringUtils" var="stringUtils"/>
         <div id="edit" class="row">
             <div class="col-md-12">
                 <p:dataTable id="countriesTable" var="aDTO" value="#{homePageBean.transferDTO}" 
@@ -20,44 +21,55 @@ and open the template in the editor.
 
                     <p:column selectionMode="multiple" style="width:40px;text-align:center" />   
 
-                    <p:column headerText="#{rpx['table.Name']}" style="text-align: left;" sortBy="#{aDTO.name}">
+                    <p:column headerText="#{rpx['table.Name']}" style="text-align: left;font-size: 13px;width: 100px;" sortBy="#{aDTO.name}">
                         <h:outputText value="#{aDTO.name}"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.instanceID']}" style="text-align: left;" sortBy="#{aDTO.instanceID}">
+                    <p:column headerText="#{rpx['table.instanceID']}" style="text-align: left;font-size: 13px;width: 110px;" sortBy="#{aDTO.instanceID}">
                         <h:outputText value="#{aDTO.instanceID}"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.instanceType']}" style="text-align: left;" sortBy="#{aDTO.instanceType}">
+                    <p:column headerText="#{rpx['table.instanceType']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.instanceType}"> 
                         <h:outputText value="#{aDTO.instanceType}"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.availabilityZone']}" style="text-align: left;" sortBy="#{aDTO.availabilityZone}">
+                    <p:column headerText="#{rpx['table.availabilityZone']}" style="text-align: left;font-size: 13px;width: 100px;" sortBy="#{aDTO.availabilityZone}">
                         <h:outputText value="#{aDTO.availabilityZone}"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.instanceState']}" style="text-align: left;" sortBy="#{aDTO.instanceState}">
-                        <h:outputText value="#{aDTO.instanceState}"/>
+                    <p:column headerText="#{rpx['table.instanceState']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.instanceState}">
+                        <i class="fa fa-circle fa-1g" style="#{homePageBean.iconColor(aDTO.instanceState)}"/>
+                        <h:outputText value="#{aDTO.instanceState}" style="margin-left: 6px"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.statusChecks']}" style="text-align: center;" sortBy="#{aDTO.statusChecks}">
-                        <h:outputText value="#{aDTO.statusChecks}"/>
+                    <p:column headerText="#{rpx['table.statusChecks']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.statusChecks}">
+                        <i class="fa fa-check-circle fa-1g" style="#{homePageBean.iconColor(aDTO.statusChecks)}"/>
+                        <h:outputText value="#{aDTO.statusChecks}" style="margin-left: 6px"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.alarmStatus']}" style="text-align: center;" sortBy="#{aDTO.alarmStatus}">
-                        <h:outputText value="#{aDTO.alarmStatus}"/>
+                    <p:column headerText="#{rpx['table.alarmStatus']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.alarmStatus}">
+                        <i class="fa fa-minus-circle fa-1g" style="#{homePageBean.iconColor(aDTO.alarmStatus)}"/>
+                        <p:commandLink>
+                            <h:outputText value="ALARM" style="margin-left: 4px; margin-right: 4px; color: #0c75d2" />
+                        </p:commandLink>
+                        <i class="fa fa-paint-brush fa-1g" style="color: #32CD32"/>
                     </p:column>
 
-                    <p:column headerText="#{rpx['table.publicDNS']}" style="text-align: left;" sortBy="#{aDTO.publicDNS}">
-                        <h:outputText value="#{aDTO.publicDNS}"/>
+                    <p:column headerText="#{rpx['table.publicDNS']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.publicDNS}">
+                        <h:outputText value="#{homePageBean.abbreviate(aDTO.publicDNS)}"/>
                     </p:column>
-
-                    <p:column headerText="#{rpx['table.action']}" style="text-align: center;width: 30px;"> 
+                    
+                    <p:column headerText="#{rpx['table.publicIP']}" style="text-align: left;font-size: 13px;width: 100px;" sortBy="#{aDTO.publicIP}">
+                        <p:commandLink>
+                            <h:outputText value="#{aDTO.publicIP}" style="color: #0c75d2"/>
+                        </p:commandLink>
+                    </p:column>
+                    
+                    <p:column headerText="" style="text-align: center;width: 35px;"> 
                         <p:commandButton update=":contentForm:apxTabOutputPanel"
                                          icon="view-icon"
                                          action="#{homePageBean.viewSelection(aDTO)}"
                                          title="#{rpx['table.view']}" class="img-button"/>
-
                     </p:column>
                 </p:dataTable>  
             </div>

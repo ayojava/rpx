@@ -8,7 +8,6 @@ package org.javasoft.rpx.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import static java.util.stream.Collectors.toList;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -16,7 +15,13 @@ import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import static org.javasoft.rpx.model.Constants.PASSED;
+import static org.javasoft.rpx.model.Constants.RUNNING;
+import static org.javasoft.rpx.model.Constants.STOPPED;
+import static org.javasoft.rpx.model.Constants.UNSTABLE;
 import org.javasoft.rpx.model.Country;
+import org.javasoft.rpx.model.StatusIntf;
 import org.javasoft.rpx.model.TransferDTO;
 import org.primefaces.event.SelectEvent;
 
@@ -32,8 +37,7 @@ public class HomePageBean implements Serializable {
     @Inject
     private StartupBean startUpBean;
 
-    @Getter
-    private List<Country> allCountries;
+    
     
     @Getter
     private List<TransferDTO> transferDTO;
@@ -57,18 +61,10 @@ public class HomePageBean implements Serializable {
         firstName ="xxxx";
         lastName ="yyyy";
     }
-
-    private void loadTable_() {
-        startUpBean.loadCountries();
-        if (startUpBean.getAllCountries().isEmpty()) {
-            allCountries = startUpBean.getAllCountries();
-        } else {
-            allCountries = startUpBean.getAllCountries().stream().limit(80).collect(toList());
-        }
-    }
     
     private void loadTable() {
-        transferDTO = new ArrayList<>();
+        startUpBean.loadTransferDTO();
+        transferDTO = startUpBean.getTransferDTOs();
     }
 
     public void onRowSelect(SelectEvent event) {
@@ -86,6 +82,24 @@ public class HomePageBean implements Serializable {
     }
     
     public void viewSelection(TransferDTO domain){
+        System.out.println("==== Called TransferDTO ========");
         selectedTransferDTO = domain;
+    }
+    
+    public String abbreviate(String value){
+        return StringUtils.abbreviate(value, 15);
+    }
+    public String iconColor(String type){
+        StatusIntf intf = (s) -> {
+            if( StringUtils.equalsIgnoreCase(s, RUNNING) || StringUtils.equalsIgnoreCase(s, PASSED)){
+                return "color: #00FF00";
+            }else if(StringUtils.equalsIgnoreCase(s, UNSTABLE)){
+                return "color: #FF4500";
+            }else if(StringUtils.equalsIgnoreCase(s, STOPPED)){
+                return "color: #FF0000";
+            }
+            return "";
+        };
+        return intf.statusCheck(type);
     }
 }

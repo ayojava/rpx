@@ -66,3 +66,8 @@ and open the template in the editor.
     padding: 2px;
     color :#000000;
 }
+
+.ui-datatable th {
+    font-weight: normal !important;
+    color:#bc7a00;
+}

@@ -7,6 +7,8 @@ package org.javasoft.rpx.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,17 +19,20 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
+import static org.javasoft.rpx.model.Constants.PASSED;
+import static org.javasoft.rpx.model.Constants.RUNNING;
+import static org.javasoft.rpx.model.Constants.STOPPED;
+import static org.javasoft.rpx.model.Constants.UNSTABLE;
 import org.javasoft.rpx.model.Country;
+import org.javasoft.rpx.model.TransferDTO;
 import static org.javasoft.rpx.rest.RestURL.COUNTRIES_URL;
-import org.omnifaces.cdi.Eager;
 
 /**
  *
  * @author ayojava
  */
-//@Slf4j
-//@Eager
+
 @Named("startUpBean")
 @ApplicationScoped
 public class StartupBean {
@@ -35,19 +40,90 @@ public class StartupBean {
     @Getter
     private List<Country> allCountries;
     
+    private String ipAddress1,ipAddress2;
+    
     private Country aCountry;
+    
+    private TransferDTO transferDTO;
+    
+    @Getter
+    private List<TransferDTO> transferDTOs;
 
     @Inject
     private ServletContext context;
 
     @PostConstruct
     public void init() {
-        //log.info("Real Path ::: {} ", context.getRealPath("/"));
         System.out.println("real Path ::: " + context.getRealPath("/"));
-        //loadCountries();
     }
 
-    public void loadCountries_() {
+    public void loadTransferDTO(){
+        transferDTOs = new ArrayList<>();
+        
+        /*****************************/
+        ipAddress1 =generateRandomIPAddress();
+        ipAddress2 =generateRandomIPAddress();
+        
+        transferDTO = new TransferDTO(1L,"Jcle Linux 1",returnUUID(),"t2.micro","eu-central-1a",RUNNING,PASSED,STOPPED,
+        "ec2-"+ ipAddress1+".eu-central-1a",ipAddress2,"ip-"+ipAddress2+".eu-central-1.compute.internal","",
+        "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
+        "ethn0","True","False","ebs","/dev/xvda","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
+         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+        
+        transferDTOs.add(transferDTO);
+        
+        /*****************************/
+        
+        ipAddress1 =generateRandomIPAddress();
+        ipAddress2 =generateRandomIPAddress();
+        
+        transferDTO = new TransferDTO(1L,"Jcle Ubuntu 1",returnUUID(),"t3.micro","za-central-2a",UNSTABLE,STOPPED,PASSED,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
+        "ethn0","False","True","ebs","/dev/xvda","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
+         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+        
+        transferDTOs.add(transferDTO);
+        
+        /*****************************/
+        
+        ipAddress1 =generateRandomIPAddress();
+        ipAddress2 =generateRandomIPAddress();
+        
+        transferDTO = new TransferDTO(1L,"Jcle Fedora 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
+        "ethn0","False","True","ebs","/dev/dvdg","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
+         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+        
+        transferDTOs.add(transferDTO);
+        
+        /*****************************/
+        
+        ipAddress1 =generateRandomIPAddress();
+        ipAddress2 =generateRandomIPAddress();
+        
+        transferDTO = new TransferDTO(1L,"Jcle Gnome 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
+        "ethn0","False","True","ebs","/dev/dvdg","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
+         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+        
+        transferDTOs.add(transferDTO);
+        
+        /*****************************/
+    }
+    
+    private String returnUUID(){
+        return "i-"+UUID.randomUUID().toString().substring(2, 7);
+    }
+    
+    private String generateRandomIPAddress(){
+        Random r = new Random();
+        return r.nextInt(99) + "." + r.nextInt(99) + "." + r.nextInt(99) + "." + r.nextInt(99);
+    }
+    
+    public void loadCountriesFromRest() {
         try {
             Client client = ClientBuilder.newClient();
             allCountries = client.target(COUNTRIES_URL).path("all").

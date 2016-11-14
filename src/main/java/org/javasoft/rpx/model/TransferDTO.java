@@ -5,6 +5,7 @@
  */
 package org.javasoft.rpx.model;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransferDTO {
+public class TransferDTO implements Serializable{
     
     private Long id;
     
@@ -83,6 +84,8 @@ public class TransferDTO {
     private String iamRole;
     
     private String owner;
+    
+    
     
     
 }
