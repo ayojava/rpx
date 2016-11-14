@@ -84,6 +84,7 @@ public class HomePageBean implements Serializable {
     public void viewSelection(TransferDTO domain){
         System.out.println("==== Called TransferDTO ========");
         selectedTransferDTO = domain;
+        displayTab = true;
     }
     
     public String abbreviate(String value){

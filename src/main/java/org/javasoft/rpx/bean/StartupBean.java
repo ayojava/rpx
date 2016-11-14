@@ -65,10 +65,10 @@ public class StartupBean {
         ipAddress2 =generateRandomIPAddress();
         
         transferDTO = new TransferDTO(1L,"Jcle Linux 1",returnUUID(),"t2.micro","eu-central-1a",RUNNING,PASSED,STOPPED,
-        "ec2-"+ ipAddress1+".eu-central-1a",ipAddress2,"ip-"+ipAddress2+".eu-central-1.compute.internal","",
+        "ec2-"+ ipAddress1+".eu-central-1a",ipAddress1,ipAddress2,"ip-"+ipAddress2+".eu-central-1.compute.internal","",
         "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
         "ethn0","True","False","ebs","/dev/xvda","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
-         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+         "-","jwin","","True","Normal","Basic","jlinux view rules","",RandomStringUtils.randomNumeric(8));
         
         transferDTOs.add(transferDTO);
         
@@ -77,11 +77,11 @@ public class StartupBean {
         ipAddress1 =generateRandomIPAddress();
         ipAddress2 =generateRandomIPAddress();
         
-        transferDTO = new TransferDTO(1L,"Jcle Ubuntu 1",returnUUID(),"t3.micro","za-central-2a",UNSTABLE,STOPPED,PASSED,
-        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        transferDTO = new TransferDTO(2L,"Jcle Ubuntu 1",returnUUID(),"t3.micro","za-central-2a",UNSTABLE,STOPPED,PASSED,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress1,ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
         "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
         "ethn0","False","True","ebs","/dev/xvda","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
-         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+         "-","jwin","","True","Normal","Basic","jlinux view rules","",RandomStringUtils.randomNumeric(8));
         
         transferDTOs.add(transferDTO);
         
@@ -90,11 +90,11 @@ public class StartupBean {
         ipAddress1 =generateRandomIPAddress();
         ipAddress2 =generateRandomIPAddress();
         
-        transferDTO = new TransferDTO(1L,"Jcle Fedora 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
-        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        transferDTO = new TransferDTO(3L,"Jcle Fedora 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress1,ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
         "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
         "ethn0","False","True","ebs","/dev/dvdg","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
-         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+         "-","jwin","","True","Normal","Basic","jlinux view rules","",RandomStringUtils.randomNumeric(8));
         
         transferDTOs.add(transferDTO);
         
@@ -103,11 +103,11 @@ public class StartupBean {
         ipAddress1 =generateRandomIPAddress();
         ipAddress2 =generateRandomIPAddress();
         
-        transferDTO = new TransferDTO(1L,"Jcle Gnome 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
-        "za2-"+ ipAddress1+".za-central-2a",ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
+        transferDTO = new TransferDTO(4L,"Jcle Gnome 1",returnUUID(),"t3.micro","za-central-2a",STOPPED,UNSTABLE,RUNNING,
+        "za2-"+ ipAddress1+".za-central-2a",ipAddress1,ipAddress2,"ip-"+ipAddress2+".za-central-2.compute.internal","",
         "vpc-"+ RandomStringUtils.randomAlphanumeric(7).toLowerCase(),"subnet"+ RandomStringUtils.randomAlphanumeric(5).toLowerCase(),
         "ethn0","False","True","ebs","/dev/dvdg","/dev/xvda",ipAddress1,"No Sceduled Events",RandomStringUtils.randomAlphanumeric(13).toLowerCase(),
-         "-","jwin","","True","Normal","Basic","jlinux view rules","-","",RandomStringUtils.randomNumeric(8));
+         "-","jwin","","True","Normal","Basic","jlinux view rules","",RandomStringUtils.randomNumeric(8));
         
         transferDTOs.add(transferDTO);
         
