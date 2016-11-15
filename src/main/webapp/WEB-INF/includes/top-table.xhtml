@@ -11,14 +11,26 @@ and open the template in the editor.
     <h:body>
         <div id="edit" class="row">
             <div class="col-md-12">
-                <p:dataTable id="countriesTable" var="aDTO" value="#{homePageBean.transferDTO}" 
+                <p:dataTable id="transferDTOTable" var="aDTO" value="#{homePageBean.transferDTO}" 
                              paginatorPosition="bottom" paginator="true" rows="10" rowIndexVar="rowIndex" rowKey="#{aDTO.id}" 
                              paginatorTemplate=" {CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+
+                    <f:facet name="header">
+                        
+                        <p:commandButton icon="question-icon" class="img-button"/>
+                        <p:spacer width="8px"/>
+                        <p:commandButton icon="refresh-icon" class="img-button" title="#{rpx['btn.refresh']}" update=":contentForm:transferDTOTable"/>
+                        <p:spacer width="8px"/>
+                        <p:commandButton id="toggleBtn" icon="gear-icon" class="img-button" title="#{rpx['btn.toggle']}"/>
+                        <p:columnToggler datasource="transferDTOTable" trigger="toggleBtn" />
+                        
+                        
+                    </f:facet>
 
                     <p:ajax event="rowSelect" listener="#{homePageBean.onRowSelect}" />
                     <p:ajax event="rowUnselect" listener="#{homePageBean.onRowUnSelect}"/>
 
-                    <p:column selectionMode="multiple" style="width:40px;text-align:center" />   
+                    <p:column selectionMode="multiple" style="width:40px;text-align:center" toggleable="false"/>   
 
                     <p:column headerText="#{rpx['table.Name']}" style="text-align: left;font-size: 13px;width: 100px;" sortBy="#{aDTO.name}">
                         <h:outputText value="#{aDTO.name}"/>
@@ -57,14 +69,14 @@ and open the template in the editor.
                     <p:column headerText="#{rpx['table.publicDNS']}" style="text-align: left;font-size: 13px;" sortBy="#{aDTO.publicDNS}">
                         <h:outputText value="#{homePageBean.abbreviate(aDTO.publicDNS)}"/>
                     </p:column>
-                    
+
                     <p:column headerText="#{rpx['table.publicIP']}" style="text-align: left;font-size: 13px;width: 100px;" sortBy="#{aDTO.publicIP}">
                         <p:commandLink>
                             <h:outputText value="#{aDTO.publicIP}" style="color: #0c75d2"/>
                         </p:commandLink>
                     </p:column>
-                    
-                    <p:column headerText="" style="text-align: center;width: 35px;"> 
+
+                    <p:column headerText="" style="text-align: center;width: 35px;" toggleable="false"> 
                         <p:commandButton update=":contentForm:rpxTabOutputPanel"
                                          icon="view-icon"
                                          action="#{homePageBean.viewSelection(aDTO)}"

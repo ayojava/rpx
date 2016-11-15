@@ -71,3 +71,7 @@ and open the template in the editor.
     font-weight: normal !important;
     color:#bc7a00;
 }
+
+.ui-datatable .ui-datatable-header{
+    text-align: right !important;
+}
