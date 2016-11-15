@@ -38,6 +38,7 @@ and open the template in the editor.
                         <div class="col-md-12">
                             <p:tabView id='apxTabView'>
                                 <p:tab id="description" title="#{rpx['tab.description']}">
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <p:outputLabel value="#{rpx['label.instanceID']}" class="text-warning  pull-right"
@@ -78,7 +79,9 @@ and open the template in the editor.
                                         </div>
                                         <div class="col-md-3">
                                             <p:commandLink value="#{homePageBean.selectedTransferDTO.publicIP}"
-                                                           style="font-size: 13px;color: #3399f3;"/>      
+                                                           style="font-size: 13px;color: #3399f3;"
+                                                           update=":contentForm:apxTabView:infoDialogPopupPanel"
+                                                           oncomplete="PF('infoDialogPopup').show()"/>      
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,7 +102,9 @@ and open the template in the editor.
                                         <div class="col-md-3">
 
                                             <p:commandLink value= "#{homePageBean.selectedTransferDTO.elasticIPs}"
-                                                           style="font-size: 13px;color: #3399f3;"/>                                     
+                                                           style="font-size: 13px;color: #3399f3;"
+                                                           update=":contentForm:apxTabView:infoDialogPopupPanel"
+                                                           oncomplete="PF('infoDialogPopup').show()"/>                                     
 
                                         </div>
                                     </div>
@@ -222,7 +227,9 @@ and open the template in the editor.
                                         <div class="col-md-3">
                                             <span class="text-primary">
                                                 <p:commandLink value="#{homePageBean.selectedTransferDTO.networkInterfaces}  "
-                                                               style="font-size: 13px;color: #3399f3;"/>   
+                                                               style="font-size: 13px;color: #3399f3;"
+                                                               update=":contentForm:apxTabView:infoDialogPopupPanel"
+                                                               oncomplete="PF('infoDialogPopup').show()"/>   
                                             </span>
 
                                         </div>
@@ -330,7 +337,9 @@ and open the template in the editor.
                                         </div>
                                         <div class="col-md-3">
                                             <p:commandLink value="#{homePageBean.selectedTransferDTO.rootDevice}"
-                                                           style="font-size: 13px;color: #3399f3;"/>
+                                                           style="font-size: 13px;color: #3399f3;"
+                                                           update=":contentForm:apxTabView:infoDialogPopupPanel"
+                                                           oncomplete="PF('infoDialogPopup').show()"/>
                                         </div>
 
                                         <div class="col-md-3">
@@ -350,10 +359,12 @@ and open the template in the editor.
                                                            style="font-size: 13px;"/> 
                                         </div>
                                         <div class="col-md-3">
-                                            
-                                                <p:commandLink value="#{homePageBean.selectedTransferDTO.blockDevices} "
-                                                               style="font-size: 13px;color: #3399f3;"/>
-                                            
+
+                                            <p:commandLink value="#{homePageBean.selectedTransferDTO.blockDevices} "
+                                                           style="font-size: 13px;color: #3399f3;"
+                                                           update=":contentForm:apxTabView:infoDialogPopupPanel"
+                                                           oncomplete="PF('infoDialogPopup').show()"/>
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -367,6 +378,83 @@ and open the template in the editor.
 
                                         </div>
                                     </div>
+
+                                    <p:dialog modal="true" widgetVar="infoDialogPopup" resizable="false" id="infoDialogPopupId"
+                                              showEffect="puff" hideEffect="clip"  header="Info">
+                                        <p:outputPanel id="infoDialogPopupPanel">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p:outputLabel value="#{rpx['label.default']}" />
+                                                </div>  
+                                                <div class="col-md-7">
+                                                    <span style="margin-left: 4px;">
+                                                        xxxxxxx
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </p:outputPanel>
+                                        <f:facet name="footer">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-right">
+                                                        <p:button id="close" value="#{rpx['btn.close']}" class="round-button"
+                                                                  onclick="PF('infoDialogPopup').hide()"/>
+                                                        <p:spacer width="5px"/>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </f:facet>
+                                    </p:dialog>
                                 </p:tab>
                                 <p:tab id="statusChecks" title="#{rpx['tab.statusChecks']}">
                                     <div class="row">

@@ -75,3 +75,34 @@ and open the template in the editor.
 .ui-datatable .ui-datatable-header{
     text-align: right !important;
 }
+
+.ui-dialog.ui-widget-content{
+    padding: 2px;
+    margin: 3px;
+    border-radius : 8px;
+    border: 7px solid rgba(0,0,0,0.5);
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-titlebar{
+    border-radius : 8px;
+    display: block;
+    border: 1px solid #AFBEBE;
+    background-image: linear-gradient(to bottom, #f5f5f5 0px, #e8e8e8 100%);
+    padding-left: 3px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-title{
+    font-family: monospace ;
+    font-size: 13px;  
+    padding-left: 8px;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-content{
+    padding: 2px;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-titlebar-close {
+    margin-top: 3px;
+}

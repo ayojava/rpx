@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -31,13 +32,11 @@ import org.primefaces.event.SelectEvent;
  */
 @Slf4j
 @Named("homePageBean")
-@ViewScoped
+@SessionScoped
 public class HomePageBean implements Serializable {
 
     @Inject
     private StartupBean startUpBean;
-
-    
     
     @Getter
     private List<TransferDTO> transferDTO;
@@ -68,21 +67,14 @@ public class HomePageBean implements Serializable {
     }
 
     public void onRowSelect(SelectEvent event) {
-        
-//        System.out.println("=== Country ==== " + ((Country) event.getObject()).getName());
-//        selectedCountry = (Country) event.getObject();
-//        displayTab = true;
-       // borders = Arrays.stream(selectedCountry.getBorders()).collect(joining(", "));
-        //altSpellings = Arrays.stream(selectedCountry.getAltSpellings()).collect(joining(", "));
-
+       
     }
 
     public void onRowUnSelect(SelectEvent event) {
-        log.info("=== Country ==== {} ", ((Country) event.getObject()).getName());
+        
     }
     
-    public void viewSelection(TransferDTO domain){
-        System.out.println("==== Called TransferDTO ========");
+    public void viewSelection(TransferDTO domain){    
         selectedTransferDTO = domain;
         displayTab = true;
     }
