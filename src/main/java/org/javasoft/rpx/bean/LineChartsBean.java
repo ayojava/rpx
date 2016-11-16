@@ -6,14 +6,16 @@
 package org.javasoft.rpx.bean;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.RandomUtils;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.LineChartModel;
@@ -24,12 +26,14 @@ import org.primefaces.model.chart.LineChartSeries;
  * @author ayojava
  */
 @Named("lineChartsBean")
-@ViewScoped
+@RequestScoped
 public class LineChartsBean implements Serializable {
 
     private FacesContext facesContext;
 
     private ResourceBundle bundle;
+    
+    private Calendar calObj;
 
     @Getter
     private LineChartModel cpuUtilizationModel, diskReadsModel, diskReadOperationsModel;
@@ -42,10 +46,13 @@ public class LineChartsBean implements Serializable {
     
     @Getter @Setter
     private String timeDifference;
+    
+    private double time1,time2,time3,time4,time5,time6,time7;
 
     @PostConstruct
     public void init() {
         initMsgBundle();
+        initTimeValues();
         initChartModels();
         initCpuUtilizationModel();
         initDiskReadsModel();
@@ -57,6 +64,36 @@ public class LineChartsBean implements Serializable {
         initNetworkPacketsInModel();
     }
 
+    void initTimeValues(){
+       calObj =  Calendar.getInstance();
+       time7 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, -60);
+       time1 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, 10);
+       time2 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, 10);
+       time3 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, 10);
+       time4 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, 10);
+       time5 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+       
+       calObj.add(Calendar.MINUTE, 10);
+       time6 = Double.parseDouble(calObj.get(Calendar.HOUR_OF_DAY) + "."+calObj.get(Calendar.MINUTE));
+      
+    }
+    
     void initMsgBundle() {
         facesContext = FacesContext.getCurrentInstance();
         Locale locale = facesContext.getViewRoot().getLocale();
@@ -78,12 +115,13 @@ public class LineChartsBean implements Serializable {
 
     private void initCpuUtilizationModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 1.3);
-        series.set(8.05, 0.2);
-        series.set(8.10, 0.6);
-        series.set(8.25, 0.1);
-        series.set(8.40, 0.1);
-        series.set(8.48, 3.3);
+        series.set(time1, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time2, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time3, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time4, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time5, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time6, RandomUtils.nextDouble(0.0, 3.5));
+        series.set(time7, RandomUtils.nextDouble(0.0, 3.5));
 
         cpuUtilizationModel.addSeries(series);
         cpuUtilizationModel.setTitle(bundle.getString("label.cpuUtilization"));
@@ -95,20 +133,23 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(8);
 
         Axis x_axis = cpuUtilizationModel.getAxis(AxisType.X);
-        x_axis.setMin(8.0);
-        x_axis.setMax(8.5);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initDiskReadsModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 0.2);
-        series.set(8.05, 0.2);
-        series.set(8.10, 0.2);
-        series.set(8.25, 0.2);
-        series.set(8.40, 0.2);
-        series.set(8.48, 0.2);
+        double val = RandomUtils.nextDouble(0.0, 1.0);
+        series.set(time1, val);
+        series.set(time2, val);
+        series.set(time3, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time4, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time5, val);
+        series.set(time6, val);
+        series.set(time7, val);
 
         diskReadsModel.addSeries(series);
         diskReadsModel.setTitle(bundle.getString("label.diskReads"));
@@ -120,20 +161,23 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(5);
 
         Axis x_axis = diskReadsModel.getAxis(AxisType.X);
-        x_axis.setMin(8.0);
-        x_axis.setMax(8.5);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initDiskReadOperationsModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 0.2);
-        series.set(8.05, 0.2);
-        series.set(8.10, 0.2);
-        series.set(8.25, 0.2);
-        series.set(8.40, 0.2);
-        series.set(8.48, 0.2);
+        double val = RandomUtils.nextDouble(0.0, 1.0);
+        series.set(time1, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time2, val);
+        series.set(time3, val);
+        series.set(time4, val);
+        series.set(time5, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time6, 0.2);
+        series.set(time7, 0.2);
 
         diskReadOperationsModel.addSeries(series);
         diskReadOperationsModel.setTitle(bundle.getString("label.diskReadOperations"));
@@ -145,20 +189,23 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(5);
 
         Axis x_axis = diskReadOperationsModel.getAxis(AxisType.X);
-        x_axis.setMin(8.0);
-        x_axis.setMax(8.5);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initDiskWritesModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 0.2);
-        series.set(8.05, 0.2);
-        series.set(8.10, 0.2);
-        series.set(8.25, 0.2);
-        series.set(8.40, 0.2);
-        series.set(8.48, 0.2);
+        double val = RandomUtils.nextDouble(0.0, 1.0);
+        series.set(time1, val);
+        series.set(time2, val);
+        series.set(time3, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time4, val);
+        series.set(time5, val);
+        series.set(time6, val);
+        series.set(time7, RandomUtils.nextDouble(0.0, 1.0));
 
         diskWritesModel.addSeries(series);
         diskWritesModel.setTitle(bundle.getString("label.diskWrites"));
@@ -170,20 +217,23 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(5);
 
         Axis x_axis = diskWritesModel.getAxis(AxisType.X);
-        x_axis.setMin(8.0);
-        x_axis.setMax(8.5);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initDiskWritesOperationsModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 0.2);
-        series.set(8.05, 0.2);
-        series.set(8.10, 0.2);
-        series.set(8.25, 0.2);
-        series.set(8.40, 0.2);
-        series.set(8.48, 0.2);
+        double val = RandomUtils.nextDouble(0.0, 1.0);
+        series.set(time1, val);
+        series.set(time2, val);
+        series.set(time3, RandomUtils.nextDouble(0.0, 1.0));
+        series.set(time4, val);
+        series.set(time5, val);
+        series.set(time6, val);
+        series.set(time7, RandomUtils.nextDouble(0.0, 1.0));
 
         diskWritesOperationsModel.addSeries(series);
         diskWritesOperationsModel.setTitle(bundle.getString("label.diskWriteOperations"));
@@ -195,20 +245,23 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(5);
 
         Axis x_axis = diskWritesOperationsModel.getAxis(AxisType.X);
-        x_axis.setMin(8.00);
-        x_axis.setMax(8.50);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initNetworkInModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 8000);
-        series.set(8.05, 6500);
-        series.set(8.10, 3200);
-        series.set(8.25, 9500);
-        series.set(8.40, 6600);
-        series.set(8.48, 49000);
+        int val = RandomUtils.nextInt(0, 50000);
+        series.set(time1, RandomUtils.nextInt(0, 50000));
+        series.set(time2, RandomUtils.nextInt(0, 50000));
+        series.set(time3, RandomUtils.nextInt(0, 50000));
+        series.set(time4, RandomUtils.nextInt(0, 50000));
+        series.set(time5, RandomUtils.nextInt(0, 50000));
+        series.set(time6, RandomUtils.nextInt(0, 50000));
+        series.set(time7, RandomUtils.nextInt(0, 50000));
 
         networkInModel.addSeries(series);
         networkInModel.setTitle(bundle.getString("label.networkIn"));
@@ -220,20 +273,22 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(6);
 
         Axis x_axis = networkInModel.getAxis(AxisType.X);
-        x_axis.setMin(8.00);
-        x_axis.setMax(8.50);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initNetworkOutModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 8000);
-        series.set(8.05, 6500);
-        series.set(8.10, 3200);
-        series.set(8.25, 9500);
-        series.set(8.40, 6600);
-        series.set(8.48, 49000);
+        series.set(time1, RandomUtils.nextInt(0, 1500000));
+        series.set(time2, RandomUtils.nextInt(0, 1500000));
+        series.set(time3, RandomUtils.nextInt(0, 1500000));
+        series.set(time4, RandomUtils.nextInt(0, 1500000));
+        series.set(time5, RandomUtils.nextInt(0, 1500000));
+        series.set(time6, RandomUtils.nextInt(0, 1500000));
+        series.set(time7, RandomUtils.nextInt(0, 1500000));
 
         networkOutModel.addSeries(series);
         networkOutModel.setTitle(bundle.getString("label.networkOut"));
@@ -245,20 +300,22 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(4);
 
         Axis x_axis = networkOutModel.getAxis(AxisType.X);
-        x_axis.setMin(8.00);
-        x_axis.setMax(8.50);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 
     private void initNetworkPacketsInModel() {
         LineChartSeries series = new LineChartSeries();
-        series.set(8.00, 180);
-        series.set(8.05, 120);
-        series.set(8.10, 200);
-        series.set(8.25, 135);
-        series.set(8.40, 110);
-        series.set(8.48, 550);
+        series.set(time1, RandomUtils.nextInt(0, 600));
+        series.set(time2, RandomUtils.nextInt(0, 600));
+        series.set(time3, RandomUtils.nextInt(0, 600));
+        series.set(time4, RandomUtils.nextInt(0, 600));
+        series.set(time5, RandomUtils.nextInt(0, 600));
+        series.set(time6, RandomUtils.nextInt(0, 600));
+        series.set(time7, RandomUtils.nextInt(0, 600));
 
         networkPacketsInModel.addSeries(series);
         networkPacketsInModel.setTitle(bundle.getString("label.networkPacketsIn"));
@@ -270,9 +327,10 @@ public class LineChartsBean implements Serializable {
         y_axis.setTickCount(4);
 
         Axis x_axis = networkPacketsInModel.getAxis(AxisType.X);
-        x_axis.setMin(8.00);
-        x_axis.setMax(8.50);
-        x_axis.setTickInterval("0.25");
-        x_axis.setTickCount(3);
+        x_axis.setMin(time1);
+        x_axis.setMax(time7);
+        x_axis.setTickFormat("%4.2f");
+        x_axis.setTickCount(2);
+        x_axis.setLabel(bundle.getString("label.time"));
     }
 }
