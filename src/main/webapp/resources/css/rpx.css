@@ -106,3 +106,9 @@ and open the template in the editor.
 .ui-dialog.ui-widget-content .ui-dialog-titlebar-close {
     margin-top: 3px;
 }
+
+.ui-clock{
+    border: none;
+    font-weight: normal;
+    padding: 4px 10px;
+}

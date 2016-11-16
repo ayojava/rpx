@@ -37,8 +37,10 @@ and open the template in the editor.
                     #{homePageBean.lastName}                    
                 </div>
             </div>
-            <div class="col-md-2" style="padding-top: 15px;">
+            <div class="col-md-3" style="padding-top: 15px;">
                 <div class="pull-right">
+                    <p:clock pattern="hh:mm:ss a 'on' EE dd, yyyy" />
+                    <!--
                     <em>
                         <script type="text/javascript" >
                             var d = new Date();
@@ -50,9 +52,10 @@ and open the template in the editor.
                             document.write(d.getFullYear() + ".");
                         </script>
                     </em>
+                    -->
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <div class="pull-right">
                     <p:ajaxStatus style="width:25px;height:25px;margin-right: 25px;">
                         <f:facet name="start">

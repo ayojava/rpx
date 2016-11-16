@@ -6,11 +6,12 @@
 package org.javasoft.rpx.bean;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import lombok.Getter;
@@ -42,6 +43,9 @@ public class HomePageBean implements Serializable {
     private List<TransferDTO> transferDTO;
     
     @Getter @Setter
+    private List<TransferDTO> selectTransferDTOs;
+    
+    @Getter @Setter
     private TransferDTO selectedTransferDTO;
 
     @Getter @Setter
@@ -52,6 +56,8 @@ public class HomePageBean implements Serializable {
 
     @Getter @Setter
     private String borders, altSpellings , firstName , lastName;
+    
+    private int selection;
 
     @PostConstruct
     public void init() {
@@ -59,6 +65,8 @@ public class HomePageBean implements Serializable {
         displayTab = false;
         firstName ="xxxx";
         lastName ="yyyy";
+        selection= 0;
+        selectTransferDTOs = new ArrayList<>();
     }
     
     private void loadTable() {
@@ -67,11 +75,24 @@ public class HomePageBean implements Serializable {
     }
 
     public void onRowSelect(SelectEvent event) {
-       
+        selection++;
+        System.out.println("Selection After onRowSelect ::: " + selection);
+        displayTab =(selection == 1)? true :false;
+        
     }
 
     public void onRowUnSelect(SelectEvent event) {
-        
+        selection--;
+        System.out.println("Selection After onRowUnSelect ::: " + selection);
+        if(selection == 1){
+            displayTab = true;
+        }
+    }
+    
+    public void onToggleSelect(SelectEvent event) {
+        selection = selectTransferDTOs.size();
+        System.out.println("Selection After onToggleSelect ::: " + selection);
+        displayTab =false;
     }
     
     public void viewSelection(TransferDTO domain){    
@@ -87,7 +108,7 @@ public class HomePageBean implements Serializable {
             if( StringUtils.equalsIgnoreCase(s, RUNNING) || StringUtils.equalsIgnoreCase(s, PASSED)){
                 return "color: #00FF00";
             }else if(StringUtils.equalsIgnoreCase(s, UNSTABLE)){
-                return "color: #FF4500";
+                return "color: #FFA500";
             }else if(StringUtils.equalsIgnoreCase(s, STOPPED)){
                 return "color: #FF0000";
             }
@@ -95,4 +116,6 @@ public class HomePageBean implements Serializable {
         };
         return intf.statusCheck(type);
     }
+    
+    
 }

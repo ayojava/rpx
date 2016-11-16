@@ -9,80 +9,83 @@ and open the template in the editor.
       xmlns:of="http://omnifaces.org/functions" xmlns:o="http://omnifaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
-        
-        <div id="edit" class="row">
-            <div class="col-md-6" style="padding-top: 8px;">
-                <p:outputLabel value="#{rpx['label.cloudWatchMetrics']}"/>
-                <p:spacer width="8px"/>
-                #{rpx['label.basicMonitoring']}
-                <p:spacer width="8px"/>
-                <p:commandLink value="#{rpx['label.detailedMonitoring']}" style="color: #3399f3;"/>
-            </div>
-            <div class="col-md-3" style="padding-top: 8px;">
-                <div class="pull-right">
-                    <p:outputLabel value="#{rpx['label.showDataFor']}" for="timeDifference"/>
-                    <p:spacer width="8px"/>
-                </div>  
-            </div>
-            <div class="col-md-2" style="padding-top: 0px;">
-                <div class="pull-left">
+        <p:outputPanel id="lineChartsOutputPanel">
 
-                    <p:selectOneMenu id="timeDifference" value="#{lineChartsBean.timeDifference}">
-                        <f:selectItem itemLabel="#{rpx['select.lastHour']}" itemValue="#{rpx['select.lastHour']}" />
-                        <f:selectItem itemLabel="#{rpx['select.lastSixHours']}" itemValue="#{rpx['select.lastSixHours']}" />
-                        <f:selectItem itemLabel="#{rpx['select.lastTwelveHours']}" itemValue="#{rpx['select.lastTwelveHours']}" />
-                        <f:selectItem itemLabel="#{rpx['select.lastTwentyFourHours']}" itemValue="#{rpx['select.lastTwentyFourHours']}" />
-                    </p:selectOneMenu>
-                                        
-                </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-            </div>
-            <div class="col-md-1" style="padding-top: 2px;">
-                <div class="pull-right">
-                    <p:button icon="refresh-icon" class="img-button" />
+
+            <div id="edit" class="row">
+                <div class="col-md-6" style="padding-top: 8px;">
+                    <p:outputLabel value="#{rpx['label.cloudWatchMetrics']}"/>
                     <p:spacer width="8px"/>
+                    #{rpx['label.basicMonitoring']}
+                    <p:spacer width="8px"/>
+                    <p:commandLink value="#{rpx['label.detailedMonitoring']}" style="color: #3399f3;"/>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;">
+                    <div class="pull-right">
+                        <p:outputLabel value="#{rpx['label.showDataFor']}" for="timeDifference"/>
+                        <p:spacer width="8px"/>
+                    </div>  
+                </div>
+                <div class="col-md-2" style="padding-top: 0px;">
+                    <div class="pull-left">
+
+                        <p:selectOneMenu id="timeDifference" value="#{lineChartsBean.timeDifference}">
+                            <f:selectItem itemLabel="#{rpx['select.lastHour']}" itemValue="#{rpx['select.lastHour']}" />
+                            <f:selectItem itemLabel="#{rpx['select.lastSixHours']}" itemValue="#{rpx['select.lastSixHours']}" />
+                            <f:selectItem itemLabel="#{rpx['select.lastTwelveHours']}" itemValue="#{rpx['select.lastTwelveHours']}" />
+                            <f:selectItem itemLabel="#{rpx['select.lastTwentyFourHours']}" itemValue="#{rpx['select.lastTwentyFourHours']}" />
+                        </p:selectOneMenu>
+
+                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                </div>
+                <div class="col-md-1" style="padding-top: 2px;">
+                    <div class="pull-right">
+                        <p:commandButton icon="refresh-icon" class="img-button" update=":contentForm:apxTabView:lineChartsOutputPanel"/>
+                        <p:spacer width="8px"/>
+                    </div>  
+                </div>
+            </div>
+            <div id="edit" class="row">
+                <div class="col-md-12">
+                    <hr size="0" class="separator" />
+                </div>
+            </div>
+            <div id="edit" class="row">
+                <div class="col-md-12">
+                    <span style="font-size: 13px;">
+                        #{rpx['label.monitoringInfo']}
+                    </span>
                 </div>  
             </div>
-        </div>
-        <div id="edit" class="row">
-            <div class="col-md-12">
-                <hr size="0" class="separator" />
+            <div id="edit" class="row" style="padding-top: 5px;">
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.cpuUtilizationModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.diskReadsModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.diskReadOperationsModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.diskWritesModel}" style="width: 100%;height: 200px;"/>
+                </div>
             </div>
-        </div>
-        <div id="edit" class="row">
-            <div class="col-md-12">
-                <span style="font-size: 13px;">
-                    #{rpx['label.monitoringInfo']}
-                </span>
-            </div>  
-        </div>
-        <div id="edit" class="row" style="padding-top: 5px;">
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.cpuUtilizationModel}" style="width: 100%;height: 200px;"/>
+            <div id="edit" class="row" style="padding-top: 8px;">
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.diskWritesOperationsModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.networkInModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.networkOutModel}" style="width: 100%;height: 200px;"/>
+                </div>
+                <div class="col-md-3">
+                    <p:chart type="line" model="#{lineChartsBean.networkPacketsInModel}" style="width: 100%;height: 200px;"/>
+                </div>
             </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.diskReadsModel}" style="width: 100%;height: 200px;"/>
-            </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.diskReadOperationsModel}" style="width: 100%;height: 200px;"/>
-            </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.diskWritesModel}" style="width: 100%;height: 200px;"/>
-            </div>
-        </div>
-        <div id="edit" class="row" style="padding-top: 8px;">
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.diskWritesOperationsModel}" style="width: 100%;height: 200px;"/>
-            </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.networkInModel}" style="width: 100%;height: 200px;"/>
-            </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.networkOutModel}" style="width: 100%;height: 200px;"/>
-            </div>
-            <div class="col-md-3">
-                <p:chart type="line" model="#{lineChartsBean.networkPacketsInModel}" style="width: 100%;height: 200px;"/>
-            </div>
-        </div>
+        </p:outputPanel>
     </h:body>
 
 </html>
