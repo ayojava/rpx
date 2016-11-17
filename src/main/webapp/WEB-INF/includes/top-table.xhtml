@@ -18,7 +18,7 @@ and open the template in the editor.
 
                     <f:facet name="header">
 
-                        <p:commandButton icon="question-icon" class="img-button"/>
+                        <p:commandButton icon="question-icon" type="button" class="img-button" onclick="PF('helpDialogPopup').show();"/>
                         <p:spacer width="8px"/>
                         <p:commandButton icon="refresh-icon" class="img-button" title="#{rpx['btn.refresh']}" update=":contentForm:transferDTOTable"/>
                         <p:spacer width="8px"/>
@@ -95,6 +95,29 @@ and open the template in the editor.
                 <hr size="0" class="separator" />
             </div>
         </div>
-
+        <p:dialog modal="true" widgetVar="helpDialogPopup" resizable="false" id="helpDialogPopupId"
+                  showEffect="puff" hideEffect="clip"  header="#{rpx['label.help']}" style="width: 220px;">
+            <div class="row">
+                <div class="col-md-5">
+                    <p:outputLabel value="#{rpx['label.default']}" />
+                </div>  
+                <div class="col-md-7">
+                    <span style="margin-left: 4px;">
+                        xxxxxxx
+                    </span>
+                </div>
+            </div>
+            <f:facet name="footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right">
+                            <p:button id="close" value="#{rpx['btn.close']}" class="round-button"
+                                      onclick="PF('helpDialogPopup').hide()"/>
+                            <p:spacer width="5px"/>   
+                        </div>
+                    </div>
+                </div>
+            </f:facet>
+        </p:dialog>
     </h:body>
 </html>
